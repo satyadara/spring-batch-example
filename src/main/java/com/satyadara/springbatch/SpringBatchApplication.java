@@ -1,6 +1,7 @@
 package com.satyadara.springbatch;
 
 import com.satyadara.springbatch.batch.jdbc.JdbcBatchJob;
+import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.launch.JobLauncher;
@@ -16,6 +17,8 @@ public class SpringBatchApplication implements CommandLineRunner {
     private JobLauncher jobLauncher;
     @Autowired
     private JdbcBatchJob jdbcBatchJob;
+    @Autowired
+    private Job jpaJob;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBatchApplication.class, args);
@@ -23,7 +26,7 @@ public class SpringBatchApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        jobLauncher.run(jdbcBatchJob.job(), new JobParameters());
+        jobLauncher.run(jpaJob, new JobParameters());
     }
 
 }
