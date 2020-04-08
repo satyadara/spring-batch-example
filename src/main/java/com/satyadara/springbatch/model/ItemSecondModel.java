@@ -1,4 +1,4 @@
-package com.satyadara.springbatch;
+package com.satyadara.springbatch.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,8 +12,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "item_table")
-public class ItemModel {
+@Table(name = "item_second_table")
+public class ItemSecondModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
