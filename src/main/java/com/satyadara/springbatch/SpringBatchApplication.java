@@ -23,6 +23,8 @@ public class SpringBatchApplication implements CommandLineRunner {
     @Autowired
     @Qualifier("csvJob")
     private Job job;
+    @Autowired
+    private Job excelJob;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBatchApplication.class, args);
@@ -31,7 +33,8 @@ public class SpringBatchApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //        jobLauncher.run(jpaJob, new JobParameters());
-        jobLauncher.run(job, new JobParameters());
+//        jobLauncher.run(job, new JobParameters());
+        jobLauncher.run(excelJob, new JobParameters());
     }
 
 }
